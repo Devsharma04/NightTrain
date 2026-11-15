@@ -1,0 +1,293 @@
+<media-container
+  class="media-skin media-container media-video night-train-skin"
+  data-theme="scaffold"
+  data-preset="video"
+  aria-label="Night Train video player"
+  role="group"
+  tabindex="0"
+>
+  <!-- Add a compatible media component here. -->
+  <media-poster class="media-poster">
+    <img alt="" decoding="async" class="media-poster-image">
+  </media-poster>
+
+  <aside class="tn-platform-sign" aria-label="Now arriving">
+    <span class="tn-sign-kicker">Now arriving</span>
+    <strong class="tn-sign-title">The Midnight Line</strong>
+    <span class="tn-sign-detail" data-current-station>Leaving the depot</span>
+  </aside>
+
+  <div class="tn-state-overlay tn-state-overlay--paused" role="status" aria-live="polite" aria-atomic="true">
+    <span class="tn-state-lamp" aria-hidden="true"><media-icon family="scaffold" name="play"></media-icon></span>
+    <div class="tn-state-sign">
+      <span class="tn-state-kicker">Paused</span>
+      <strong>Stopped at station</strong>
+    </div>
+  </div>
+
+  <div class="tn-state-overlay tn-state-overlay--buffering" role="status" aria-live="polite" aria-atomic="true">
+    <div class="tn-state-sign">
+      <span class="tn-state-kicker">Buffering</span>
+      <strong>Waiting for signal</strong>
+    </div>
+  </div>
+
+  <div class="tn-state-overlay tn-state-overlay--ended" role="group" aria-label="The end">
+    <div class="tn-state-sign">
+      <span class="tn-state-kicker">The end</span>
+      <strong>End of the line</strong>
+    </div>
+    <media-play-button class="tn-replay-button" label="Run again">
+      <media-icon family="scaffold" name="restart" aria-hidden="true"></media-icon>
+      <span>Run again</span>
+    </media-play-button>
+  </div>
+
+  <div class="tn-state-overlay tn-state-overlay--error" role="alert" aria-live="assertive" aria-atomic="true">
+    <span class="tn-state-kicker">Signal failure</span>
+    <div class="tn-state-sign"><strong>Line closed</strong></div>
+    <button class="tn-retry-button" type="button" data-error-retry>Try again</button>
+  </div>
+
+  <media-error-dialog>
+    <media-dialog-backdrop class="media-dialog-backdrop"></media-dialog-backdrop>
+    <media-dialog-popup class="media-dialog-popup">
+      <media-dialog-title class="media-dialog-title">Signal failure</media-dialog-title>
+      <media-dialog-description class="media-dialog-description">Line closed</media-dialog-description>
+      <media-dialog-close class="media-button media-dialog-close" aria-label="Try again">Try again</media-dialog-close>
+    </media-dialog-popup>
+  </media-error-dialog>
+
+  <media-controls>
+    <media-controls-backdrop class="tn-controls-backdrop" aria-hidden="true"></media-controls-backdrop>
+    <media-buffering-indicator class="tn-buffering-indicator" delay="350" aria-hidden="true">
+      <span class="tn-buffering-spinner"></span>
+    </media-buffering-indicator>
+
+    <media-controls-content class="tn-controls-content" data-visible>
+      <div class="tn-control-panel">
+        <div class="tn-time-row">
+          <div class="tn-time-board tn-time-board--elapsed" aria-label="Departed">
+            <span class="tn-time-caption">Departed</span>
+            <span class="tn-time-digits" aria-hidden="true"></span>
+            <media-time class="tn-time-source" type="current" label="Elapsed time"></media-time>
+          </div>
+
+          <div class="tn-lane-wrap">
+            <media-time-slider class="tn-time-slider" label="Seek" step="1" large-step="10" thumb-alignment="edge">
+              <media-time-slider-chapters class="tn-chapters">
+                <template>
+                  <div class="tn-chapter">
+                    <media-slider-track class="tn-track">
+                      <media-slider-buffer class="tn-buffer"></media-slider-buffer>
+                      <media-slider-fill class="tn-fill"></media-slider-fill>
+                    </media-slider-track>
+                  </div>
+                </template>
+              </media-time-slider-chapters>
+
+              <span class="tn-decoration-layer" aria-hidden="true">
+                <span class="tn-sleepers"><span class="tn-sleepers-lit"></span></span>
+                <span class="tn-stations">
+                  <span class="tn-station" style="--station-position: 4%" data-position="4" data-name="Leaving the Depot"><span>1</span></span>
+                  <span class="tn-station" style="--station-position: 12%" data-position="12" data-name="Open Countryside"><span>2</span></span>
+                  <span class="tn-station" style="--station-position: 28%" data-position="28" data-name="Fields and Farmland"><span>3</span></span>
+                  <span class="tn-station" style="--station-position: 46%" data-position="46" data-name="The Village Crossing"><span>4</span></span>
+                  <span class="tn-station" style="--station-position: 62%" data-position="62" data-name="Along the River"><span>5</span></span>
+                  <span class="tn-station" style="--station-position: 75%" data-position="75" data-name="Mountain Pass"><span>6</span></span>
+                  <span class="tn-station" style="--station-position: 88%" data-position="88" data-name="Final Approach"><span>7</span></span>
+                  <span class="tn-station" style="--station-position: 96%" data-position="96" data-name="Home Platform"><span>8</span></span>
+                </span>
+                <span class="tn-tunnel" data-tunnel aria-hidden="true"></span>
+                <span class="tn-train" aria-hidden="true">
+                  <span class="tn-carriage tn-carriage--rear"><i></i><i></i><i></i></span>
+                  <span class="tn-carriage tn-carriage--front"><i></i><i></i><i></i></span>
+                  <span class="tn-locomotive"><i class="tn-cab-window"></i><i class="tn-headlight"></i></span>
+                  <i class="tn-steam-puff" data-puff="1"></i><i class="tn-steam-puff" data-puff="2"></i><i class="tn-steam-puff" data-puff="3"></i><i class="tn-steam-puff" data-puff="4"></i>
+                </span>
+                <span class="tn-semaphore" aria-hidden="true">
+                  <i class="tn-semaphore-post"></i>
+                  <i class="tn-semaphore-arm"></i>
+                  <i class="tn-semaphore-lamp"></i>
+                </span>
+                <span class="tn-buffer-stop"></span>
+              </span>
+
+              <media-slider-thumb class="tn-slider-thumb"></media-slider-thumb>
+              <media-slider-preview class="tn-slider-preview">
+                <span class="tn-preview-time"><media-slider-value type="pointer"></media-slider-value></span>
+                <media-time-slider-chapter-title class="tn-preview-chapter"></media-time-slider-chapter-title>
+              </media-slider-preview>
+            </media-time-slider>
+          </div>
+
+          <div class="tn-time-board tn-time-board--duration" aria-label="Arrives">
+            <span class="tn-time-caption">Arrives</span>
+            <span class="tn-time-digits" aria-hidden="true"></span>
+            <media-time class="tn-time-source" type="duration" label="Duration"></media-time>
+          </div>
+
+        </div>
+
+        <p class="tn-mobile-statusline"><span class="tn-mobile-next">Next · Old Quay 0:42</span><span aria-hidden="true"> · </span><span>On time</span></p>
+
+        <div class="tn-controls-row" role="group" aria-label="Playback controls">
+          <div class="tn-controls-left">
+            <media-play-button class="tn-control tn-play-button">
+              <media-icon family="scaffold" name="restart" class="media-play-button-restart-icon" aria-hidden="true"></media-icon>
+              <media-icon family="scaffold" name="play" class="media-play-button-play-icon" aria-hidden="true"></media-icon>
+              <media-icon family="scaffold" name="pause" class="media-play-button-pause-icon" aria-hidden="true"></media-icon>
+            </media-play-button>
+            <media-seek-button class="tn-control tn-skip-button" seconds="-10" label="Back 10 seconds">
+              <span aria-hidden="true">-10</span>
+            </media-seek-button>
+            <media-seek-button class="tn-control tn-skip-button" seconds="10" label="Forward 10 seconds">
+              <span aria-hidden="true">+10</span>
+            </media-seek-button>
+          </div>
+
+          <div class="tn-next-station tn-next-station--desktop tn-controls-center">
+            <span class="tn-station-clock" aria-hidden="true">
+              <i class="tn-clock-tick" style="--tick-angle: 0deg"></i><i class="tn-clock-tick" style="--tick-angle: 30deg"></i>
+              <i class="tn-clock-tick" style="--tick-angle: 60deg"></i><i class="tn-clock-tick" style="--tick-angle: 90deg"></i>
+              <i class="tn-clock-tick" style="--tick-angle: 120deg"></i><i class="tn-clock-tick" style="--tick-angle: 150deg"></i>
+              <i class="tn-clock-tick" style="--tick-angle: 180deg"></i><i class="tn-clock-tick" style="--tick-angle: 210deg"></i>
+              <i class="tn-clock-tick" style="--tick-angle: 240deg"></i><i class="tn-clock-tick" style="--tick-angle: 270deg"></i>
+              <i class="tn-clock-tick" style="--tick-angle: 300deg"></i><i class="tn-clock-tick" style="--tick-angle: 330deg"></i>
+              <i class="tn-clock-hand tn-clock-hand--hour"></i><i class="tn-clock-hand tn-clock-hand--minute"></i><i class="tn-clock-hub"></i>
+            </span>
+            <span class="tn-next-copy"><span>Next station</span><strong class="tn-next-value">Old Quay · 0:42</strong></span>
+          </div>
+          <span class="tn-controls-spacer" aria-hidden="true"></span>
+
+          <div class="tn-controls-right">
+          <media-mute-button class="tn-control tn-icon-button tn-mute-button">
+            <media-icon family="scaffold" name="volume-off" class="tn-volume-off" aria-hidden="true"></media-icon>
+            <media-icon family="scaffold" name="volume-low" class="tn-volume-low" aria-hidden="true"></media-icon>
+            <media-icon family="scaffold" name="volume-high" class="tn-volume-high" aria-hidden="true"></media-icon>
+          </media-mute-button>
+
+          <div class="tn-volume-gauge">
+            <div class="tn-gauge-dial" aria-hidden="true">
+              <i class="tn-gauge-tick" style="--tick-angle: -90deg"></i>
+              <i class="tn-gauge-tick" style="--tick-angle: -54deg"></i>
+              <i class="tn-gauge-tick" style="--tick-angle: -18deg"></i>
+              <i class="tn-gauge-tick" style="--tick-angle: 18deg"></i>
+              <i class="tn-gauge-tick tn-gauge-tick--red" style="--tick-angle: 54deg"></i>
+              <i class="tn-gauge-tick tn-gauge-tick--red" style="--tick-angle: 90deg"></i>
+              <i class="tn-gauge-needle"></i><i class="tn-gauge-hub"></i>
+            </div>
+            <input class="tn-volume-gauge-input" type="range" min="0" max="100" step="5" value="70" aria-label="Volume" aria-valuetext="70 percent">
+          </div>
+
+          <div class="tn-desktop-utility">
+            <media-playback-rate-button class="tn-control tn-text-button tn-speed-button" label="Playback speed" commandfor="tn-speed-menu-desktop" rates="0.5 1 1.5 2">
+              <span class="tn-speed-label" aria-hidden="true">Local 1x</span>
+            </media-playback-rate-button>
+            <button class="tn-control tn-text-button tn-quality-button" type="button" aria-label="Quality" commandfor="tn-quality-menu-desktop">Class HD</button>
+          </div>
+
+          <media-captions-button class="tn-control tn-icon-button tn-captions-button" label="Captions">
+            <span aria-hidden="true">CC</span>
+          </media-captions-button>
+          <media-fullscreen-button class="tn-control tn-icon-button tn-fullscreen-button">
+            <media-icon family="scaffold" name="fullscreen-enter" class="media-fullscreen-button-enter-icon" aria-hidden="true"></media-icon>
+            <media-icon family="scaffold" name="fullscreen-exit" class="media-fullscreen-button-exit-icon" aria-hidden="true"></media-icon>
+          </media-fullscreen-button>
+          <button class="tn-control tn-icon-button tn-more-button" type="button" aria-label="More controls" commandfor="tn-more-menu">
+            <span aria-hidden="true">•••</span>
+          </button>
+          </div>
+        </div>
+
+        <media-menu id="tn-more-menu" class="tn-more-menu" side="bottom" align="end" close-on-outside-click>
+          <media-menu-content class="tn-menu-content tn-more-main">
+            <span class="tn-sheet-handle" aria-hidden="true"></span>
+            <div class="tn-sheet-header"><strong>More</strong><media-menu-item class="tn-sheet-close" data-close-more>Close more controls</media-menu-item></div>
+            <media-menu-item class="tn-sheet-row" commandfor="tn-more-speed"><span>Speed</span><span class="tn-sheet-value" data-part="hint" data-more-speed-hint>Local 1x</span></media-menu-item>
+            <media-menu-item class="tn-sheet-row" commandfor="tn-more-quality"><span>Quality</span><span class="tn-sheet-value" data-part="hint" data-more-quality-hint>Auto</span></media-menu-item>
+            <media-menu-checkbox-item class="tn-sheet-row tn-captions-toggle" data-sheet-captions><span>Captions</span><span class="tn-sheet-value tn-sheet-status">Off</span><media-menu-item-indicator force-mount class="tn-menu-check" aria-hidden="true">✓</media-menu-item-indicator></media-menu-checkbox-item>
+            <div class="tn-narrow-skip-row">
+              <media-menu-item class="tn-sheet-row" data-menu-seek="-10">Back 10 seconds</media-menu-item>
+              <media-menu-item class="tn-sheet-row" data-menu-seek="10">Forward 10 seconds</media-menu-item>
+            </div>
+          </media-menu-content>
+          <media-menu-content id="tn-more-speed" class="tn-menu-content tn-more-options">
+            <span class="tn-sheet-handle" aria-hidden="true"></span>
+            <media-menu-item class="tn-sheet-row tn-sheet-back">‹ <span>Back</span></media-menu-item>
+            <div class="tn-menu-heading">Timetable · Service speed</div>
+            <media-playback-rate-radio-group class="tn-menu-group" rates="0.5 1 1.5 2" label="Playback speed">
+              <template><media-menu-radio-item class="tn-menu-item"><span data-part="label"></span><media-menu-item-indicator force-mount class="tn-menu-check" aria-hidden="true">✓</media-menu-item-indicator></media-menu-radio-item></template>
+            </media-playback-rate-radio-group>
+          </media-menu-content>
+          <media-menu-content id="tn-more-quality" class="tn-menu-content tn-more-options">
+            <span class="tn-sheet-handle" aria-hidden="true"></span>
+            <media-menu-item class="tn-sheet-row tn-sheet-back">‹ <span>Back</span></media-menu-item>
+            <div class="tn-menu-heading">Carriage class</div>
+            <media-quality-radio-group class="tn-menu-group" label="Quality">
+              <template><media-menu-radio-item class="tn-menu-item"><span data-part="label"></span><sup data-part="tier" class="tn-quality-tier"></sup><span data-part="badge" class="tn-quality-badge"></span><media-menu-item-indicator force-mount class="tn-menu-check" aria-hidden="true">✓</media-menu-item-indicator></media-menu-radio-item></template>
+            </media-quality-radio-group>
+          </media-menu-content>
+        </media-menu>
+
+        <media-menu id="tn-speed-menu-desktop" class="tn-menu" side="top" align="center">
+          <media-menu-content class="tn-menu-content">
+            <div class="tn-menu-heading">Timetable · Service speed</div>
+            <media-playback-rate-radio-group class="tn-menu-group" rates="0.5 1 1.5 2" label="Playback speed">
+              <template>
+                <media-menu-radio-item class="tn-menu-item">
+                  <span data-part="label"></span>
+                  <media-menu-item-indicator force-mount class="tn-menu-check" aria-hidden="true">✓</media-menu-item-indicator>
+                </media-menu-radio-item>
+              </template>
+            </media-playback-rate-radio-group>
+          </media-menu-content>
+        </media-menu>
+
+        <media-menu id="tn-quality-menu-desktop" class="tn-menu" side="top" align="center">
+          <media-menu-content class="tn-menu-content">
+            <div class="tn-menu-heading">Timetable · Carriage class</div>
+            <media-quality-radio-group class="tn-menu-group" label="Quality">
+              <template>
+                <media-menu-radio-item class="tn-menu-item">
+                  <span data-part="label"></span>
+                  <sup data-part="tier" class="tn-quality-tier"></sup>
+                  <span data-part="badge" class="tn-quality-badge"></span>
+                  <media-menu-item-indicator force-mount class="tn-menu-check" aria-hidden="true">✓</media-menu-item-indicator>
+                </media-menu-radio-item>
+              </template>
+            </media-quality-radio-group>
+          </media-menu-content>
+        </media-menu>
+
+      </div>
+    </media-controls-content>
+  </media-controls>
+
+  <dialog class="tn-shortcuts-dialog" aria-labelledby="tn-shortcuts-title">
+    <div class="tn-dialog-panel">
+      <button type="button" class="tn-dialog-close" aria-label="Close keyboard shortcuts">×</button>
+      <h2 id="tn-shortcuts-title">Keyboard shortcuts</h2>
+      <p>All shortcuts work while focus is inside this player.</p>
+      <dl class="tn-shortcuts-list">
+        <div><dt>Tab / Shift + Tab</dt><dd>Move through controls in visual order</dd></div>
+        <div><dt>Enter / Space</dt><dd>Activate a focused button</dd></div>
+        <div><dt>Space / K</dt><dd>Play or pause</dd></div><div><dt>J / L</dt><dd>Back or forward 10 seconds</dd></div>
+        <div><dt>Left / Right</dt><dd>Seek 5 seconds on the lane; volume 5% on the gauge</dd></div>
+        <div><dt>Page Up / Page Down</dt><dd>Previous or next station</dd></div><div><dt>Home / End</dt><dd>Start or end</dd></div>
+        <div><dt>Up / Down</dt><dd>Volume 5%</dd></div><div><dt>M</dt><dd>Mute or unmute</dd></div>
+        <div><dt>C</dt><dd>Captions on or off</dd></div><div><dt>F</dt><dd>Fullscreen</dd></div>
+        <div><dt>Esc</dt><dd>Close a menu or sheet and return focus</dd></div><div><dt>?</dt><dd>Open this shortcut guide</dd></div>
+      </dl>
+    </div>
+  </dialog>
+
+  <tn-player-logic class="tn-player-logic" aria-hidden="true"></tn-player-logic>
+
+  <media-gesture type="tap" action="togglePaused" pointer="mouse" region="center"></media-gesture>
+  <media-gesture type="tap" action="toggleControls" pointer="touch"></media-gesture>
+  <media-gesture type="doubletap" action="seekStep" region="left"></media-gesture>
+  <media-gesture type="doubletap" action="toggleFullscreen" region="center"></media-gesture>
+  <media-gesture type="doubletap" action="seekStep" region="right"></media-gesture>
+  <media-status-announcer class="media-status-announcer"></media-status-announcer>
+</media-container>
